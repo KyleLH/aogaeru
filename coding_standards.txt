@@ -1,0 +1,22 @@
+############################################################
+This document describes the coding standards for the project.
+############################################################
+
+Template:
+
+<html>
+<head><title>Aogaeru</title></head>
+<script type="text/javascript">
+
+function foo (args) {
+  var expr1 = 1234;
+  var expr2 = function (args2) {
+    this.args2 = args2;
+  }
+}
+
+</script>
+<body>
+<button onclick="foo()">Click Me!</button>
+</body>
+</html>
