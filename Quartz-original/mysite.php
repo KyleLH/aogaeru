@@ -20,7 +20,7 @@ include Model.php;
     include '../dbvars.php';
 
     //Extract the bu name of website owner from the current directory name.
-
+    // localhost:8888/aogaeru/Quartz-original/index.php?id=kholz1
     $name = $_REQUEST['id'];
 
     //Construct BU email address.
@@ -30,7 +30,7 @@ include Model.php;
     //If a record of the website doesn't exist of the website is marked offline then
     //redirect to the under construction page
 
-    if (Model.getStatus($name) == 0)
+    if (getStatus($name) == 0)
     {
         Header('Location:  construction.php');
         exit;
@@ -78,7 +78,7 @@ include Model.php;
                     <table style="border-style:solid; border-width:1px">
                         <tr>
                             <td>
-                              <div class = "crop"> <img src = <?php echo Model.getPicture($name); ?> > </div>
+                              <div class = "crop"> <img src = <?php echo getPicture($name); ?> > </div>
                             </td>
                         </tr>
 
@@ -94,10 +94,10 @@ include Model.php;
                         <div class="linkbox"><a href="index.php?p=teaching">Teaching</a></div><br>
                         <div class="linkbox"><a href="index.php?p=research">Research</a></div><br>
                         <?php
-                        if (Model.getAwards($name)) echo "<div class='linkbox'><a href='index.php?p=awards'>Awards</a></div><br>";
-                        if (Model.getProjects($name)) echo "<div class='linkbox'><a href='index.php?p=projects'>Projects</a></div><br>";
-                        if (Model.getStudents($name)) echo "<div class='linkbox'><a href='index.php?p=students'>Students</a></div><br>";
-                        if (Model.getPersonal($name)) echo "<div class='linkbox'><a href='index.php?p=personal'>Personal</a></div><br>";
+                        if (getAwards($name)) echo "<div class='linkbox'><a href='index.php?p=awards'>Awards</a></div><br>";
+                        if (getProjects($name)) echo "<div class='linkbox'><a href='index.php?p=projects'>Projects</a></div><br>";
+                        if (getStudents($name)) echo "<div class='linkbox'><a href='index.php?p=students'>Students</a></div><br>";
+                        if (getPersonal($name)) echo "<div class='linkbox'><a href='index.php?p=personal'>Personal</a></div><br>";
                         ?>
 
                     </div>
@@ -118,7 +118,7 @@ include Model.php;
                         <span style=" font-size:14px;">
                             <?php
                                 //Name goes here.
-                               echo '<i>'.Model.getTitle($name).'</i>';
+                               echo '<i>'.getTitle($name).'</i>';
                             ?>
                         </span>
                         <hr noshade width="440px" align="left">
@@ -129,29 +129,29 @@ include Model.php;
                     <span style=" font-size:14px;">
                      <?php
                         //Telephone number.
-                        echo Model.getAddress($name);
+                        echo getAddress($name);
                     ?>
                     <br>
                     Tel:
                     <?php
                         //Telephone number.
-                        echo Model.getPhone($name);
+                        echo getPhone($name);
                     ?>
                     , Fax:
                     <?php
                         //Telephone number.
-                        echo Model.getFax($name);
+                        echo getFax($name);
                     ?>
 
                     <br>
                     <?php 
                         //Display the users email address. 
-                        echo Model.getEmail($name);
+                        echo getEmail($name);
                     ?>
 
                     <h5>Office Hours:</h5>
                     <?php
-                        echo Model.getOffice($name);
+                        echo getOffice($name);
                     ?>
                     </span>
                     <h5>
@@ -160,7 +160,7 @@ include Model.php;
                     <span class="nlink" style=" font-size:12px; text-align:justify">
                         <?php
                             //Short bio goes here.
-                            echo Model.getBio($name);
+                            echo getBio($name);
                         ?>
                     </span>
                     <br>
@@ -220,7 +220,7 @@ include Model.php;
                     <span class ="nlink" style=" font-size:12px; text-align:justify">
                         <?php
                             //Display research summary.
-                            echo Model.getResearch($name);
+                            echo getResearch($name);
                         ?>
                         <br><br><br><b>Research and Publications Overview : <a href="">PDF</a> | <a href="">XPS</a> | <a href="">TXT</a> </b>
                     </span>
@@ -237,7 +237,7 @@ include Model.php;
                             <?php
                                 //Heading.
                                 echo 'Awards:';
-                                echo Model.getAwards($name);
+                                echo getAwards($name);
                             ?>
                         </span>
                     <hr>
@@ -253,7 +253,7 @@ include Model.php;
                             <?php
                                 //Name goes here.
                                 echo 'Projects:';
-                                echo Model.getProjects($name);
+                                echo getProjects($name);
                             ?>
                         </span>
                     <hr>
@@ -269,7 +269,7 @@ include Model.php;
                             <?php
                                 //Title.
                                 echo 'PhD Students:';
-                                echo Model.getStudents($name);
+                                echo getStudents($name);
                             ?>
                         </span>
                     <hr>
@@ -285,7 +285,7 @@ include Model.php;
                             <?php
                                 //Title.
                                 echo 'Personal:';
-                                echo Model.getPersonal($name);
+                                echo getPersonal($name);
                             ?>
                         </span>
                     <hr>
