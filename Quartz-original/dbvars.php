@@ -14,6 +14,6 @@ $adminname = "kholz";
 $adminp = "incorrect";
 $dbname = "quartzDatabase";
 $serverhost = "http://localhost:8888/";
-$rootpath = "http://localhost:8888/Quartz-Anorien-2014S/";
+$rootpath = "http://localhost:8888/aogaeru/Quartz-original/";
 $canmail = 0;
 ?>
